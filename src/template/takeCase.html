@@ -1,0 +1,49 @@
+<div class="page deep-orange lighten-3">
+	<!-- Header -->
+	<header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="navbar-color deep-orange accent-3">
+                <div class="nav-wrapper">
+            		
+            		<div class="valign-wrapper" style="height:100%;">
+            		<div class="waves-effect waves-light" ng-click="cancel()" style="padding:5px;position: absolute;">
+            		<img class="img-responsive center valign" style="width:40px" src="image/ic_arrow_back_white_48px.svg" alt="Strap">
+            		</div>
+            			<h1 style="font-size:20px;width:100%" class="center-align valign">New Case</h1>
+            			<div class="right" style="margin-right: 10px;position: absolute;right:0px;top:0px">
+            						<a class="waves-effect waves-light btn valign-wrapper" ng-click="save()">
+            						<i class="valign" style="height:100%;font-size:1.3rem;line-height: 36px">Save</i>
+            						</a>
+            			</div>
+            		</div>
+                </div>
+            </nav>
+        </div>
+        <!-- end header nav-->
+    </header>
+	<main style="overflow-y: auto;display:block;height:100%;position: relative;">
+		<div class="container" style="margin-bottom: 70px;margin-top:30px">
+			<div class="card">
+				<div class="card-image waves-effect waves-block waves-light" style="background: url('image/user-profile-bg.jpg');height:80px; ">
+	            	<span class="card-title">
+	            	{{activity.accountName}} Case
+	            	</span>
+	            </div>
+	            <div class="card-content">
+	            	<div class="row">
+				        <div class="input-field col s12">
+				          <input placeholder="" id="subject" type="text" class="validate" ng-model="subject">
+				          <label for="Subject">Subject</label>
+				        </div>
+				        <div class="input-field col s12">
+				          <textarea id="textarea1" class="materialize-textarea" ng-model="description"></textarea>
+				          <label for="textarea1">Description</label>
+				        </div>
+			        </div>	
+	            </div>
+			</div>
+		</div>
+	</main>
+	<footer></footer>
+</div>

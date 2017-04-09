@@ -1,0 +1,59 @@
+<div class="page deep-orange lighten-3">
+	<!-- Header -->
+	<header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="navbar-color deep-orange accent-3">
+                <div class="nav-wrapper">
+            		
+            		<div class="valign-wrapper" style="height:100%;">
+            		<div class="waves-effect waves-light" ng-click="cancel()" style="padding:5px;position: absolute;">
+            		<img class="img-responsive center valign" style="width:40px" src="image/ic_arrow_back_white_48px.svg" alt="Strap">
+            		</div>
+            			<h1 style="font-size:20px;width:100%" class="center-align valign">Product Share</h1>
+            			<div class="right" style="margin-right: 10px;position: absolute;right:0px;top:0px">
+            						<a class="waves-effect waves-light btn valign-wrapper" ng-click="save()">
+            						<i class="valign" style="height:100%;font-size:1.3rem;line-height: 36px">Save</i>
+            						</a>
+            			</div>
+            		</div>
+                </div>
+            </nav>
+        </div>
+        <!-- end header nav-->
+    </header>
+	<main style="overflow-y: auto;display:block;height:100%;position: relative;">
+		<div class="container" style="margin-bottom: 70px;margin-top:30px">
+			<div class="card">
+				<div class="card-image waves-effect waves-block waves-light" style="background: url('image/user-profile-bg.jpg');height:80px; ">
+	            	<span class="card-title">
+	            	{{activity.accountName}} Products
+	            	</span>
+	            </div>
+	            <div class="card-content">
+	            	<table>
+	            		<thead>
+	            			<tr>
+	            				<th>Product Name</th>
+	            				<th>Market Share</th>
+	            				<th>Current Stock</th>
+	            			</tr>
+	            		</thead>
+	            		<tbody>
+	            			<tr ng-repeat="product in productList">
+	            				<td>{{product.name}}</td>
+	            				<td>{{product.marketShare}}</td>
+	            				<td width="50px">
+	            				<div class="input-field" style="text-align: center">
+						          <input id="quantity" type="text" class="validate" style="height:25px">
+						    	</div>
+						    </td>
+	            			</tr>
+	            		</tbody>
+	            	</table>
+	            </div>
+			</div>
+		</div>
+	</main>
+	<footer></footer>
+</div>

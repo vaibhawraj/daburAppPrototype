@@ -1,0 +1,18 @@
+{
+  "remoteAccessConsumerKey": "3MVG9ZL0ppGP5UrBQNiu.NlxWqSjK3Heqv2Yo2VgZTVcgka6Xm27kqn6n0VEP26Z.fYm.UMbU4u4HM5lXFoKu",
+  "oauthRedirectURI": "http://localhost/nilkamal/www/oauthcallback.html",
+  "oauthScopes": [
+    "web",
+    "api",
+    "refresh_token",
+    "offline_access",
+    "id","profile","email","address","phone"
+  ],
+  "isLocal": true,
+  "startPage": "index.html",
+  "errorPage": "error.html",
+  "shouldAuthenticate": true,
+  "attemptOfflineLoad": true,
+  "androidPushNotificationClientId": "",
+  "loginUrl":"https://login.salesforce.com"
+}

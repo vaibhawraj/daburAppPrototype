@@ -1,0 +1,108 @@
+<div class="page deep-orange lighten-3">
+	<!-- Header -->
+	<header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="navbar-color deep-orange accent-3">
+                <div class="nav-wrapper">
+            		
+            		<!--<div class="valign-wrapper" style="height:100%;">
+            		<div class="waves-effect waves-light" ng-click="cancel()" style="padding:5px;position: absolute;">
+            		<img class="img-responsive center valign" style="width:40px" src="image/ic_arrow_back_white_48px.svg" alt="Strap">
+            		</div>
+            			<h1 style="font-size:20px;width:100%" class="center-align valign">Place Order</h1>
+            		</div>-->
+
+            		<div class="card" style="margin:0px">
+						<div class="card-image waves-effect waves-block waves-light" style="background: url('image/user-profile-bg.jpg');height:80px; ">
+			            	<span class="card-title" style="padding: 12px;width:100%">
+        	            		<div class="waves-effect waves-light" ng-click="cancel()" style="padding:5px;">
+            						<img class="img-responsive center valign" style="width:40px" src="image/ic_arrow_back_white_48px.svg" alt="Strap">
+            					</div>
+            					Place Order
+            					<div class="right">
+            						<a class="waves-effect waves-light btn valign-wrapper" ng-click="save()">
+            						<i class="valign" style="height:100%;font-size:1.3rem;line-height: 36px">Save</i>
+            						</a>
+            					</div>
+			            	</span>
+			            </div>
+			            <div class="card-content" style="padding-top: 0px;  padding-bottom: 10px">
+			            	<div class="row">
+			            		<div class="col s3">
+			            			<h4 class="card-title grey-text text-darken-4">{{getTotalProducts()}}</h4>
+			            			<p class="medium-small grey-text" style="line-height:16px">Total Products</p>
+			            		</div>
+			            		<div class="col s3">
+			            			<h4 class="card-title grey-text text-darken-4">&#8377 {{getTotalAmount()}}</h4>
+			            			<p class="medium-small grey-text" style="line-height: 16px">Total Amount</p>
+			            		</div>
+			            		<div class="col s3">
+			            			<h4 class="card-title grey-text text-darken-4">&#8377  {{getMyProfit()}}</h4>
+			            			<p class="medium-small grey-text" style="line-height: 16px">My Profit</p>
+			            		</div>
+			            		<div class="col s3">
+			            			<h4 class="card-title grey-text text-darken-4">&#8377 {{getShopOwnerMargin()}}</h4>
+			            			<p class="medium-small grey-text" style="line-height: 16px">Shop Owner's Profit</p>
+			            		</div>
+			            		
+			            	</div>
+			            </div>
+			        </div>
+                </div>
+            </nav>
+        </div>
+        <!-- end header nav-->
+    </header>
+	<main style="overflow-y: auto;display:block;height:100%;position: relative;">
+		<div class="container" style="margin-top:150px;margin-bottom: 80px">
+			<ul class="collapsible" data-collapsible="accordion">
+			    <li ng-repeat="product in productList">
+			    	<div class="collapsible-header waves-effect" ng-click="markActive(product.Id)">
+			    		<span ng-click="addProduct(product.Id)">
+				      		<input type="checkbox" id="product{{product.Id}}" ng-checked="isProductAdded(product.Id)"/>
+				      		<label for="activity1" style="text-decoration: none;color:black" class="ng-binding">
+							{{product.name}}
+							</label>
+						</span>
+						<div class="waves-effect" style="position: absolute;top:0px;right: 0px; color:white;background-color: #c62828;border-left: 1px solid;height: 100%" ng-show="showDeleteButton(product.Id)" ng-click="removeProduct(product.Id)">
+							<div class="valign-wrapper" style="height:100%">
+							<i class="valign material-icons" style="margin-right:0.5rem; margin-left: 0.5rem">delete</i>
+							</div>
+						</div>
+						<span class="badge" style="margin-right:28px" ng-show="getQuantity(product.Id) > 0">{{getQuantity(product.Id)}} @ &#8377 {{getTotalPrice(product.Id)}}</span>
+			    	</div>
+			      	<div class="collapsible-body" style="background-color: white; padding-top:5px; padding-bottom: 0px" ng-style="showBody(product.Id)">
+				      	<div class="row" style="margin-bottom:5px">
+				      		<div class="col s4" style="text-align: center">
+				      			<h6 class="grey-text text-darken-4">&#8377 {{product.mrp}}</h6>
+			            		<p class="medium-small grey-text" style="line-height: 16px;margin-top:5px;margin-bottom: 5px">MRP</p>
+				      		</div>
+				      		<div class="col s4" style="text-align: center">
+				      			<h6 class="grey-text text-darken-4">&#8377 {{product.unitPrice}}</h6>
+			            		<p class="medium-small grey-text" style="line-height: 16px;margin-top:5px;margin-bottom: 5px">Unit Price</p>
+				      		</div>
+				      		<div class="col s4" style="text-align: center">
+				      			<h6 class="grey-text text-darken-4">&#8377 {{product.salesPrice}}</h6>
+			            		<p class="medium-small grey-text" style="line-height: 16px;margin-top:5px;margin-bottom: 5px">Sales Price</p>
+				      		</div>
+				      	</div>
+				      	<div class="row" style="margin-bottom: 5px">
+				      		<div class="col s3 offset-s1 valign-wrapper center-align" style="height: 100%">
+				      		<a class="waves-effect waves-light btn valign" ng-click="removeQuantity(product.Id)"><i class="material-icons">remove</i></a>
+				      		</div>
+				      		<div class="input-field col s4" style="text-align: center">
+						          <input placeholder="1" id="quantity" type="text" class="validate" style="height:25px" ng-model="product.quantity" ng-change="updateQuantity(product.Id)">
+						          <label for="first_name" class="active">Quantity</label>
+						    </div>
+						    <div class="col s4">
+				      		<a class="waves-effect waves-light btn" ng-click="addQuantity(product.Id)"><i class="material-icons">add</i></a>
+				      		</div>
+				      	</div>
+			      	</div>
+			    </li>
+			</ul>
+		</div>
+	</main>
+	<footer></footer>
+</div>

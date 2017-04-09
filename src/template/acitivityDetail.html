@@ -1,0 +1,88 @@
+<div class="page deep-orange lighten-3">
+	<!-- Header -->
+	<header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="navbar-color deep-orange accent-3">
+                <div class="nav-wrapper">
+            		
+            		<div class="valign-wrapper" style="height:100%;">
+            		<div class="waves-effect waves-light" ng-click="goPreviousPage('myActivity')" style="padding:5px;position: absolute;">
+            		<img class="img-responsive center valign" style="width:40px" src="image/ic_arrow_back_white_48px.svg" alt="Strap">
+            		</div>
+            			<h1 style="font-size:20px;width:100%" class="center-align valign">Account Details</h1>
+            		</div>
+                </div>
+            </nav>
+        </div>
+        <!-- end header nav-->
+    </header>
+	<main style="overflow-y: auto;display:block;height:100%;position: relative;">
+		<div class="container" style="margin-bottom: 70px;margin-top:30px">
+			<div class="card">
+				<div class="card-image waves-effect waves-block waves-light" style="background: url('image/user-profile-bg.jpg');height:150px; ">
+	            	<span class="card-title">
+	            	{{activity.accountName}}
+	            	</span>
+	            </div>
+	            <div class="card-content">
+	            	<div class="row">
+	            		<div class="col s12">
+	            			<h4 class="card-title grey-text text-darken-4">{{activity.shopOwner}}</h4>
+	            			<p class="medium-small grey-text">Store Owner</p>
+	            		</div>
+	            	</div>
+	            	<div class="row">
+	            		<div class="col s4">
+	            			<h4 class="card-title grey-text text-darken-4">{{activity.lastPurchase}}</h4>
+	            			<p class="medium-small grey-text">Last Purchase</p>
+	            		</div>
+	            		<div class="col s4">
+	            			<h4 class="card-title grey-text text-darken-4">{{activity.balanceDue}}</h4>
+	            			<p class="medium-small grey-text">Balance Due</p>
+	            		</div>
+	            		<div class="col s4">
+	            			<h4 class="card-title grey-text text-darken-4">{{activity.todaysOrder}}</h4>
+	            			<p class="medium-small grey-text">Today's Order</p>
+	            		</div>
+	            	</div>
+	            </div>
+	            <div class="card-action">
+	            	<div class="card deep-orange darken-4"  ng-click="takeOrder()">
+						<div class="card-content card-move-up waves-effect waves-block waves-light" style="cursor:pointer">
+							<div class="center-align" style="color:#ff9e80">Place Order</div>
+						</div>
+					</div>
+					<div class="card deep-orange darken-4" ng-click="takeShare()">
+						<div class="card-content card-move-up waves-effect waves-block waves-light" style="cursor:pointer">
+							<div class="center-align" style="color:#ff9e80">Market Share</div>
+						</div>
+					</div>
+					<div class="card deep-orange darken-4" ng-click="takeCase()">
+						<div class="card-content card-move-up waves-effect waves-block waves-light" style="cursor:pointer">
+							<div class="center-align" style="color:#ff9e80">Raise Case</div>
+						</div>
+					</div>
+					<div class="card deep-orange darken-4" ng-click="takeImage()">
+						<div class="card-content card-move-up waves-effect waves-block waves-light" style="cursor:pointer">
+							<div class="center-align" style="color:#ff9e80">Take Image</div>
+						</div>
+					</div>
+	            </div>
+			</div>
+		</div>
+	</main>
+	<footer></footer>
+</div>
+
+<!--<div class="page">
+	<h1>{{ activity.accountName }}</h1>
+	Actions 
+	<ul>
+	<li ng-click="takeOrder()">Place Order</li>
+	<li ng-click="takeShare()">Market Share</li>
+	<li ng-click="takeCase()">Case</li>
+	<li ng-click="takeImage()">Take Image</li>
+	<li ng-click="goPreviousPage('myActivity')">Go Back</li>
+	</ul>
+</div>-->

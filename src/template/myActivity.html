@@ -1,0 +1,33 @@
+<div class="page deep-orange lighten-3">
+	<!-- Header -->
+	<header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="navbar-color deep-orange accent-3">
+                <div class="nav-wrapper">
+            		
+            		<div class="valign-wrapper" style="height:100%;">
+            		<div class="waves-effect waves-light" ng-click="goPreviousPage('home')" style="padding:5px;position: absolute;">
+            		<img class="img-responsive center valign" style="width:40px" src="image/ic_arrow_back_white_48px.svg" alt="Strap">
+            		</div>
+            			<h1 style="font-size:20px;width:100%" class="center-align valign">My Activity</h1>
+            		</div>
+                </div>
+            </nav>
+        </div>
+        <!-- end header nav-->
+    </header>
+	<main style="overflow-y: auto;display:block;height:100%;position: relative;">
+		<div class="container" style="margin-bottom: 70px;margin-top:30px">
+			<ul class="collection">
+				<li ng-repeat="activity in activityList" ng-click="checkThis(activity)" class="collection-item">
+					<input type="checkbox" ng-model="activity.check" id="activity{{activity.Id}}"/>
+					<label for="activity{{activity.Id}}" style="text-decoration: none;color:black">
+						{{activity.accountName}}
+					</label>
+				</li>
+			</ul>
+		</div>
+	</main>
+	<footer></footer>
+</div>
