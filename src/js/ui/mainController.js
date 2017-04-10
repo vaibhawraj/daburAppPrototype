@@ -40,6 +40,7 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 				$state.go('home');
 			});
 			sfDataManager.login();
+			//sfDataManager.mediator.publish('login successful');
 			//$scope.initializeMainApp();
 			
 		};
@@ -67,21 +68,21 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 		};
 		$scope.actions = [
 			{
-				actionLabel : "My Activities",
+				actionLabel : "Today Calls",
 				iconName:"image/ic_assignment_white_48px.svg",
 				action : function(){
 					$scope.goNextPage('myActivity');
 				}
 			},
 			{
-				actionLabel : "Offers",
+				actionLabel : "Promotional Offers",
 				iconName:"image/ic_card_giftcard_white_48px.svg",
 				action : function(){
 					$scope.goNextPage('offer');
 				}
 			},
 			{
-				actionLabel : "Dashboard",
+				actionLabel : "My Dashboard",
 				iconName:"image/ic_assessment_white_48px.svg",
 				action : function(){
 					$scope.goNextPage('dashboard');
@@ -92,6 +93,7 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 				iconName:"image/ic_exit_to_app_white_48px.svg",
 				action : function(){
 					logger.info("Logging Out");
+					sfDataManager.logout();
 				}
 			}
 		];
@@ -100,15 +102,25 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 		$scope.setLoadTask = function(v){
 			$scope.loadTask = v;
 		};
-		$scope.activityList = [
-			{
+		$scope.backgroundColor = function(){
+			return "light-green lighten-5";
+		};
+		$scope.navBackgroundColor = function(){
+			return "green darken-2";
+		};
+		$scope.activityList = [];
+		$scope.setActivityList =function(records) {
+			$scope.activityList = records;
+		};
+		/*[{
 				Id : 1,
 				accountName : "Vikas Medical Store",
 				shopOwner: "Mr. Rampal Singh",
 				lastPurchase:"280.00",
 				balanceDue:"50.00",
 				todaysOrder:"180.00",
-				check:false
+				check:false,
+				address: "2 LSC, Uday Park, New Delhi"
 			},
 			{
 				Id : 2,
@@ -117,7 +129,8 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 				lastPurchase:"280.00",
 				balanceDue:"50.00",
 				todaysOrder:"180.00",
-				check:false
+				check:false,
+				address: "Building 9, DLF, Gurgaon"
 			},
 			{
 				Id : 3,
@@ -126,7 +139,8 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 				lastPurchase:"280.00",
 				balanceDue:"50.00",
 				todaysOrder:"180.00",
-				check:false
+				check:false,
+				address: "C-116/2,South Extension, New Delhi"
 			},
 			{
 				Id : 4,
@@ -135,9 +149,9 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 				lastPurchase:"280.00",
 				balanceDue:"50.00",
 				todaysOrder:"180.00",
-				check:false
-			}
-		];
+				check:false,
+				address: "D-116/2,Krishna Nagar"
+			}]*/
 		$scope.productList = productList;
 		/*
 		$scope.hideSplash= function() {

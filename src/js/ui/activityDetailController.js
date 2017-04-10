@@ -3,7 +3,9 @@ define([],function(){
 	var activityDetailController = function($scope, $rootScope, $state, activityId){
 		$scope.activityId = activityId;
 		$scope.init = function(){
+			console.log("We have something here",$scope.activityList);
 			$scope.activity = $scope.activityList.find(function(activity){
+				console.log('Activity Id',activity.Id);
 				return activity.Id == activityId;
 			});
 		};

@@ -1,16 +1,16 @@
-<div class="page deep-orange lighten-3">
+<div class="page" ng-class="backgroundColor()">
 	<!-- Header -->
 	<header id="header" class="page-topbar">
         <!-- start header nav-->
         <div class="navbar-fixed">
-            <nav class="navbar-color deep-orange accent-3">
+            <nav class="navbar-color" ng-class="navBackgroundColor()">
                 <div class="nav-wrapper">
             		
             		<div class="valign-wrapper" style="height:100%;">
             		<div class="waves-effect waves-light" ng-click="goPreviousPage('myActivity')" style="padding:5px;position: absolute;">
             		<img class="img-responsive center valign" style="width:40px" src="image/ic_arrow_back_white_48px.svg" alt="Strap">
             		</div>
-            			<h1 style="font-size:20px;width:100%" class="center-align valign">Account Details</h1>
+            			<h1 style="font-size:20px;width:100%" class="center-align valign">{{activity.accountName}}</h1>
             		</div>
                 </div>
             </nav>
@@ -20,11 +20,6 @@
 	<main style="overflow-y: auto;display:block;height:100%;position: relative;">
 		<div class="container" style="margin-bottom: 70px;margin-top:30px">
 			<div class="card">
-				<div class="card-image waves-effect waves-block waves-light" style="background: url('image/user-profile-bg.jpg');height:150px; ">
-	            	<span class="card-title">
-	            	{{activity.accountName}}
-	            	</span>
-	            </div>
 	            <div class="card-content">
 	            	<div class="row">
 	            		<div class="col s12">
@@ -34,38 +29,52 @@
 	            	</div>
 	            	<div class="row">
 	            		<div class="col s4">
-	            			<h4 class="card-title grey-text text-darken-4">{{activity.lastPurchase}}</h4>
-	            			<p class="medium-small grey-text">Last Purchase</p>
+	            			<h4 class="card-title grey-text text-darken-4">&#8377 {{activity.lastPurchase}}</h4>
+	            			<p class="medium-small grey-text">Orders for Month</p>
 	            		</div>
 	            		<div class="col s4">
-	            			<h4 class="card-title grey-text text-darken-4">{{activity.balanceDue}}</h4>
-	            			<p class="medium-small grey-text">Balance Due</p>
+	            			<h4 class="card-title grey-text text-darken-4">&#8377 {{activity.balanceDue}}</h4>
+	            			<p class="medium-small grey-text">Pending Payment</p>
 	            		</div>
 	            		<div class="col s4">
-	            			<h4 class="card-title grey-text text-darken-4">{{activity.todaysOrder}}</h4>
-	            			<p class="medium-small grey-text">Today's Order</p>
+	            			<h4 class="card-title grey-text text-darken-4">&#8377 {{activity.todaysOrder}}</h4>
+	            			<p class="medium-small grey-text">Todays Order</p>
 	            		</div>
 	            	</div>
 	            </div>
 	            <div class="card-action">
-	            	<div class="card deep-orange darken-4"  ng-click="takeOrder()">
-						<div class="card-content card-move-up waves-effect waves-block waves-light" style="cursor:pointer">
-							<div class="center-align" style="color:#ff9e80">Place Order</div>
+	            	<div class="row">
+		            	<div class="card green darken-4 col s10 offset-s1"  ng-click="takeOrder()">
+							<div class="card-content card-move-up waves-effect waves-block waves-light" style="cursor:pointer">
+								<div class="center-align">
+									<img src="image/ic_shopping_cart_white_48px.svg" height="96px">
+								</div>
+								<div class="center-align" style="color:#a5d6a7 ">Order</div>
+							</div>
 						</div>
-					</div>
-					<div class="card deep-orange darken-4" ng-click="takeShare()">
-						<div class="card-content card-move-up waves-effect waves-block waves-light" style="cursor:pointer">
-							<div class="center-align" style="color:#ff9e80">Market Share</div>
+						<div class="card green darken-4 col s10 offset-s1" ng-click="takeShare()">
+							<div class="card-content card-move-up waves-effect waves-block waves-light" style="cursor:pointer">
+								<div class="center-align">
+									<img src="image/ic_view_list_white_48px.svg" height="96px">
+								</div>
+								<div class="center-align" style="color:#a5d6a7 ">Market Share</div>
+							</div>
 						</div>
-					</div>
-					<div class="card deep-orange darken-4" ng-click="takeCase()">
-						<div class="card-content card-move-up waves-effect waves-block waves-light" style="cursor:pointer">
-							<div class="center-align" style="color:#ff9e80">Raise Case</div>
+						<div class="card green darken-4 col s10 offset-s1" ng-click="takeCase()">
+							<div class="card-content card-move-up waves-effect waves-block waves-light" style="cursor:pointer">
+								<div class="center-align">
+									<img src="image/ic_rate_review_white_48px.svg" height="96px">
+								</div>
+								<div class="center-align" style="color:#a5d6a7 ">Feedback</div>
+							</div>
 						</div>
-					</div>
-					<div class="card deep-orange darken-4" ng-click="takeImage()">
-						<div class="card-content card-move-up waves-effect waves-block waves-light" style="cursor:pointer">
-							<div class="center-align" style="color:#ff9e80">Take Image</div>
+						<div class="card green darken-4 col s10 offset-s1" ng-click="takeImage()">
+							<div class="card-content card-move-up waves-effect waves-block waves-light" style="cursor:pointer">
+								<div class="center-align">
+									<img src="image/ic_playlist_add_check_white_48px.svg" height="96px">
+								</div>
+								<div class="center-align" style="color:#a5d6a7 ">Store Audit</div>
+							</div>
 						</div>
 					</div>
 	            </div>

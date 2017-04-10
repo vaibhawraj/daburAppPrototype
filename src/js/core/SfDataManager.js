@@ -5,22 +5,63 @@ define(['core/SfClient','mediator/mediator'],function(client,m){
 	var login = function(){
 		client.login();
 	};
+	var logout = function(){
+		if(typeof(client.client)!=="undefined") {
+			client.logout();
+		}
+	};
 	client.mediator.subscribe('login successful','SfDataManager',function(){
 		logger.debug('I have received login message and I will mediate it now');
 		mediator.publish('login successful');
 	});
 	var taskList = [];
-	var getAllTask = function(){
+	var processRecords = function(records){
+		var retList = [];
+		if(records.length !== 0) {
+			records.forEach(function(task){
+				console.log(task);
+				var newRec = {};
+				newRec.Id = task.Id;
+				newRec.accountId = task.Account.Id;
+				newRec.accountName = task.Account.Name;
+				newRec.shopOwner = 'Mr. Rakesh Sharma';
+				newRec.lastPurchase = "2800.00";
+				newRec.balanceDue = "500.00";
+				newRec.todaysOrder = "50";
+				newRec.check = false;
+				newRec.address = task.Account.BillingStreet + ' ' + task.Account.BillingCity;
+				newRec.activityDate = task.ActivityDate;
+				retList.push(newRec);
+				/*
+				Id : 1,
+				accountName : "Vikas Medical Store",
+				shopOwner: "Mr. Rampal Singh",
+				lastPurchase:"280.00",
+				balanceDue:"50.00",
+				todaysOrder:"180.00",
+				check:false,
+				address: "2 LSC, Uday Park, New Delhi"
+				*/
+			});
+		}
+		return retList;
+	}
+	var getAllTask = function(success,error){
 		if(taskList.length === 0) {
 			logger.info('Fetching Account');
-			var query = 'SELECT Id FROM Task WHERE CreatedDate = TODAY';
+			var query = 'SELECT Id, Account.Id, Account.Name, Account.Shop_Owner__c, Account.Last_Purchase__c, Account.Balance_Due__c, ActivityDate, Account.billingstreet,Account.billingcity FROM Task WHERE CreatedDate = TODAY AND WHATID != null';			
 			client.client.query(query,function(response){
+				var records = response.records;
 				logger.debug('Got Response',response);
-			},function(){
-
+				taskList = processRecords(records);
+				console.log(taskList);
+				success(taskList);
+			},function(response){
+				error(response);
 			});
-		} 
-		return taskList;
+		} else {
+			success(taskList);
+		}
 	};
 
 	var saveCase = function(){
@@ -29,6 +70,7 @@ define(['core/SfClient','mediator/mediator'],function(client,m){
 
 	return {
 		login:login,
+		logout:logout,
 		mediator:mediator,
 		getAllTask:getAllTask,
 		saveCase:saveCase

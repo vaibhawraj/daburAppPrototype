@@ -28,6 +28,9 @@ define([
 			}
 			//Initialize client with creds
 		};
+		var logout = function(){
+			oauthPlugin.logout();
+		};
 		var login = function(){
 			oauthPlugin.getAuthCredentials(function(creds){
 				console.log("Received creds",creds);
@@ -82,5 +85,5 @@ define([
 			});
 		};
 		init();
-	 	return {login:login,client:client,mediator:mediator};
+	 	return {login:login,logout:logout,client:client,mediator:mediator};
 });

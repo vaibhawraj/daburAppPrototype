@@ -1,6 +1,6 @@
 {
-  "remoteAccessConsumerKey": "3MVG9ZL0ppGP5UrBQNiu.NlxWqSjK3Heqv2Yo2VgZTVcgka6Xm27kqn6n0VEP26Z.fYm.UMbU4u4HM5lXFoKu",
-  "oauthRedirectURI": "http://localhost/nilkamal/www/oauthcallback.html",
+  "remoteAccessConsumerKey": "3MVG9i1HRpGLXp.q5uZSAsrVhQZiYJz3CkusdfscDZZ99Pi7kELRAFO.qmYMsLYr9uVauhrG2gJoGJS8TdyCL",
+  "oauthRedirectURI": "http://localhost/dabur/oauthcallback.html",
   "oauthScopes": [
     "web",
     "api",

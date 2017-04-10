@@ -33,7 +33,9 @@ define(['json!core/../../bootconfig.json'],function(bootconfig){
 						}
 					};
 				this.logout = function(){
-					throw new Error("Logout method is not implemented for oauthPlugin");
+					localStorage.removeItem("creds");
+					logger.info('Successfully Logout');
+					//throw new Error("Logout method is not implemented for oauthPlugin");
 				};
 
 				//define handleOauthResponse
