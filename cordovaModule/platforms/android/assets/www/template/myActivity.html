@@ -26,16 +26,12 @@
                 <div class="card-content">
                         <p class="card-title">9:00 AM - 1:00 PM</p>
     			<ul class="collection">
-                    <li class="collection-item" ng-show="activityList.length == 0">
+                    <li class="collection-item" ng-show="listA.length == 0">
                         No records to show
                     </li>
-    				<li ng-repeat="activity in activityList" ng-click="checkThis(activity)" class="collection-item">
-    					<input type="checkbox" ng-model="activity.check" id="activity{{activity.Id}}"/>
-    					<label for="activity{{activity.Id}}" style="text-decoration: none;color:black">
-    						{{activity.accountName}}
-    					</label>
-                        <br/>
-                        <p style="margin-left:35px;">{{activity.address}}</p>
+    				<li ng-repeat="activity in listA" ng-click="checkThis(activity)" class="collection-item">
+    					<b>{{activity.accountName}}</b>
+                        <p style="margin-left:15px;">{{activity.address}}</p>
     				</li>
     			</ul>
                 </div>
@@ -44,16 +40,12 @@
                 <div class="card-content">
                     <p class="card-title">2:00 PM - 6:00 PM</p>
                 <ul class="collection">
-                    <li class="collection-item" ng-show="activityList.length == 0">
+                    <li class="collection-item" ng-show="listB.length == 0">
                         No records to show
                     </li>
-                    <li ng-repeat="activity in activityList" ng-click="checkThis(activity)" class="collection-item">
-                        <input type="checkbox" ng-model="activity.check" id="activity{{activity.Id}}"/>
-                        <label for="activity{{activity.Id}}" style="text-decoration: none;color:black">
-                            {{activity.accountName}}
-                        </label>
-                        <br/>
-                        <p style="margin-left:35px;">{{activity.address}}</p>
+                    <li ng-repeat="activity in listB" ng-click="checkThis(activity)" class="collection-item">
+                        <b>{{activity.accountName}}</b>
+                        <p style="margin-left:15px;">{{activity.address}}</p>
                     </li>
                 </ul>
                 </div>

@@ -68,7 +68,7 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 		};
 		$scope.actions = [
 			{
-				actionLabel : "Today Calls",
+				actionLabel : "Today's Activities",
 				iconName:"image/ic_assignment_white_48px.svg",
 				action : function(){
 					$scope.goNextPage('myActivity');
@@ -112,7 +112,7 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 		$scope.setActivityList =function(records) {
 			$scope.activityList = records;
 		};
-		/*[{
+		/*$scope.activityList =[{
 				Id : 1,
 				accountName : "Vikas Medical Store",
 				shopOwner: "Mr. Rampal Singh",
@@ -151,8 +151,19 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 				todaysOrder:"180.00",
 				check:false,
 				address: "D-116/2,Krishna Nagar"
-			}]*/
-		$scope.productList = productList;
+			}];*/
+		$scope.productList = [];
+		$scope.categoryList = [];
+		var temp = {};
+		productList.forEach(function(product){
+			var cat = product.category;
+			if(typeof(temp[cat]) == "undefined") {
+				temp[cat] = $scope.categoryList.length;
+				$scope.categoryList.push({categoryName : cat, items : [], dabur:0, patanjali:0, srisri:0, others:0});
+			}
+			$scope.categoryList[temp[cat]].items.push(product);
+			$scope.productList.push(product);
+		});
 		/*
 		$scope.hideSplash= function() {
 			if(typeof navigator.splashscreen != "undefined") {

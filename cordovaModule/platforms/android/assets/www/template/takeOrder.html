@@ -14,15 +14,15 @@
             		</div>-->
 
             		<div class="card" style="margin:0px">
-						<div class="card-image waves-effect waves-block waves-light" style="background: url('image/user-profile-bg.jpg');height:80px; ">
-			            	<span class="card-title" style="padding: 12px;width:100%">
+						<div class="card-image waves-effect waves-block waves-light" ng-class="navBackgroundColor()" style="height:56px; ">
+			            	<span class="card-title" style="padding: 12px; padding-bottom:3px; padding-left:4px; width:100%">
         	            		<div class="waves-effect waves-light" ng-click="cancel()" style="padding:5px;">
             						<img class="img-responsive center valign" style="width:40px" src="image/ic_arrow_back_white_48px.svg" alt="Strap">
             					</div>
-            					Place Order
+            					
             					<div class="right">
             						<a class="waves-effect waves-light btn valign-wrapper" ng-click="save()">
-            						<i class="valign" style="height:100%;font-size:1.3rem;line-height: 36px">Place Order</i>
+            						<span class="valign" style="height:100%;font-size:1.3rem;line-height: 36px">Place Order</span>
             						</a>
             					</div>
 			            	</span>
@@ -104,7 +104,7 @@
 			</ul>-->
 			<ul class="collection" data-collapsible="accordion">
 			    <li class="collection-item" ng-repeat="product in productList">
-			    	<span ng-click="addProduct(product.Id)">
+			    	<span>
 				      		<input type="checkbox" id="product{{product.Id}}" ng-checked="isProductAdded(product.Id)"/>
 				      		<label for="activity1" style="text-decoration: none;color:black" class="ng-binding">
 							{{product.name}}
@@ -123,7 +123,7 @@
 				      		<a class="waves-effect waves-light btn valign" ng-click="removeQuantity(product.Id)" style="padding:0px;width:100%"><i class="material-icons">remove</i></a>
 				      		</div>
 				      		<div class="input-field col s2" style="text-align: left; height: 100%;margin-top:25px">
-						          <input placeholder="1" id="quantity" type="text" class="validate" style="height:25px" ng-model="product.quantity" ng-change="updateQuantity(product.Id)">
+						          <input id="quantity" type="text" class="validate" style="height:25px" ng-model="product.quantity" ng-change="updateQuantity(product.Id)">
 						          <label for="first_name" class="active">Quantity</label>
 						    </div>
 						    <div class="col s2" style="height: 100%;margin-top:10px">

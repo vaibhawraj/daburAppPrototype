@@ -24,10 +24,10 @@ define(['core/SfClient','mediator/mediator'],function(client,m){
 				newRec.Id = task.Id;
 				newRec.accountId = task.Account.Id;
 				newRec.accountName = task.Account.Name;
-				newRec.shopOwner = task.Account.Shop_Owner__c;
-				newRec.lastPurchase = task.Account.Last_Purchase__c;
-				newRec.balanceDue = task.Account.Balance_Due__c;
-				newRec.todaysOrder = 0;
+				newRec.shopOwner = 'Mr. Rakesh Sharma';
+				newRec.lastPurchase = "2800";
+				newRec.balanceDue = "500";
+				newRec.todaysOrder = "1850";
 				newRec.check = false;
 				newRec.address = task.Account.BillingStreet + ' ' + task.Account.BillingCity;
 				newRec.activityDate = task.ActivityDate;
@@ -64,6 +64,17 @@ define(['core/SfClient','mediator/mediator'],function(client,m){
 		}
 	};
 
+	var insertAttachment = function(rec,successCallback, errorCallback){
+		client.client.create(
+					'attachment',
+					rec,
+					function(r){
+						successCallback(r);
+					},
+					function(r){
+						errorCallback(r);
+					});
+	}
 	var saveCase = function(){
 
 	};
@@ -73,6 +84,7 @@ define(['core/SfClient','mediator/mediator'],function(client,m){
 		logout:logout,
 		mediator:mediator,
 		getAllTask:getAllTask,
-		saveCase:saveCase
+		saveCase:saveCase,
+		insertAttachment:insertAttachment
 	};
 });

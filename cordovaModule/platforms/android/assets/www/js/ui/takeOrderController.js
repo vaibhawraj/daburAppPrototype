@@ -59,32 +59,47 @@ define([],function(){
 			}
 		};
 		$scope.removeQuantity = function(Id){
-			var productIndex = $scope.orderedProductList.findIndex(function(opl){return opl.productId === Id;});
 			var product = $scope.productList.find(function(pd){return pd.Id === Id;});
-			if(productIndex !== -1 && $scope.orderedProductList[productIndex].isSelected) {
+			if(productIndex !== -1) {
 				product.quantity =  parseInt(product.quantity,10) - 1;
-				if(product.quantity < 1) {
-					product.quantity = 1;
+				if(product.quantity < 0) {
+					product.quantity = 0;
 				}
-				$scope.orderedProductList[productIndex].quantity = product.quantity;
+				if(product.quantity == 0) {
+					$scope.removeProduct(Id);
+				}
+				var productIndex = $scope.orderedProductList.findIndex(function(opl){return opl.productId === Id;});
+				if(productIndex !== -1){
+				$scope.orderedProductList[productIndex].quantity = product.quantity;}
 			}
 		};
 		$scope.addQuantity = function(Id){
-			var productIndex = $scope.orderedProductList.findIndex(function(opl){return opl.productId === Id;});
 			var product = $scope.productList.find(function(pd){return pd.Id === Id;});
-			if(productIndex !== -1 && $scope.orderedProductList[productIndex].isSelected) {
+			if(productIndex !== -1) {
 					product.quantity = parseInt(product.quantity,10) + 1;
+					if(product.quantity > 0) {
+						$scope.addProduct(Id);
+					}
+					var productIndex = $scope.orderedProductList.findIndex(function(opl){return opl.productId === Id;});
 					$scope.orderedProductList[productIndex].quantity = product.quantity;
-			}
+			}			
 		};
 		$scope.updateQuantity = function(Id){
-			var productIndex = $scope.orderedProductList.findIndex(function(opl){return opl.productId === Id;});
 			var product = $scope.productList.find(function(pd){return pd.Id === Id;});
 			if(productIndex !== -1 && $scope.orderedProductList[productIndex].isSelected) {
-				if(product.quantity < 1) {
-					product.quantity = 1;
+				product.quantity = parseInt(product.quantity);
+				if(product.quantity < 0) {
+					product.quantity = 0;
 				}
-				$scope.orderedProductList[productIndex].quantity = product.quantity;
+				if(product.quantity == 0) {
+					$scope.removeProduct(Id);
+				} else {
+					$scope.addProduct(Id);
+				}
+				var productIndex = $scope.orderedProductList.findIndex(function(opl){return opl.productId === Id;});
+				if(productIndex !== -1){
+					$scope.orderedProductList[productIndex].quantity = product.quantity;
+				}
 			}
 		};
 		$scope.showDeleteButton = function(Id){
@@ -135,7 +150,7 @@ define([],function(){
 				return activity.Id == activityId;
 			});
 			$scope.productList.forEach(function(product){
-				product.quantity = 1;
+				product.quantity = 0;
 			});
 		};
 		$scope.init();

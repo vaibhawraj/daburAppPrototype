@@ -17,13 +17,13 @@
         <!-- end header nav-->
     </header>
 	<main style="overflow-y: auto;display:block;height:100%;position: relative;">
-		<div class="container">
+		<div class="container" style="margin-bottom: 70px;margin-top:30px">
 			<ul class="row">
-				<li ng-repeat="action in actions" ng-click="action.action()" class="col s10 offset-s1">
+				<li ng-repeat="action in actions" ng-click="action.action()" class="col s8 offset-s2">
 					<div class="card green darken-4">
 						<div class="card-content card-move-up waves-effect waves-block waves-light" style="cursor:pointer">
 							<div class="center-align">
-								<img src="{{action.iconName}}" height="96px">
+								<img src="{{action.iconName}}" height="64px">
 							</div>
 							<div class="center-align" style="color:#a5d6a7">{{action.actionLabel}}</div>
 						</div>

@@ -13,9 +13,23 @@ define(['core/SfDataManager'],function(sfDataManager){
 			act.check = true;
 			$scope.goDetailPage(act);
 		};
+		$scope.listA = [];
+		$scope.listB = [];
 		$scope.onTaskLoad = function(records){
 			$scope.setLoadTask(false);
-			$scope.activityList = records;
+			$scope.setActivityList(records);
+			if($scope.activityList.length > 0) {
+				var toggle = true;
+				$scope.activityList.forEach(function(act){
+					if(toggle) {
+						$scope.listA.push(act);
+					}
+					else {
+						$scope.listB.push(act);	
+					}
+					toggle = !toggle;
+				});
+			}
 			$scope.showSpinner = false;
 			if(!$scope.$$phase) $scope.$apply();
 		};
@@ -25,6 +39,8 @@ define(['core/SfDataManager'],function(sfDataManager){
 		};
 		$scope.init = function(){
 			console.log('LoadTask',$scope.loadTask);
+			$scope.listA = [];
+			$scope.listB = [];
 			if($scope.loadTask)	 {
 				$scope.showSpinner = true;
 				sfDataManager.getAllTask($scope.onTaskLoad, $scope.onLoadFail);

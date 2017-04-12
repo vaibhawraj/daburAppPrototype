@@ -109,7 +109,10 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 			return "green darken-2";
 		};
 		$scope.activityList = [];
-		/*[{
+		$scope.setActivityList =function(records) {
+			$scope.activityList = records;
+		};
+		/*$scope.activityList =[{
 				Id : 1,
 				accountName : "Vikas Medical Store",
 				shopOwner: "Mr. Rampal Singh",
@@ -148,7 +151,7 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 				todaysOrder:"180.00",
 				check:false,
 				address: "D-116/2,Krishna Nagar"
-			}]*/
+			}];*/
 		$scope.productList = productList;
 		/*
 		$scope.hideSplash= function() {
