@@ -112,6 +112,18 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 		$scope.setActivityList =function(records) {
 			$scope.activityList = records;
 		};
+		$scope.dayStarted = false;
+		$scope.dayEnded = false;
+		$scope.dayStart = function(){
+			if(!$scope.dayStarted){
+					$scope.dayStarted = true;
+			}
+			console.log($scope.dayStarted);
+		};
+		$scope.dayEnd = function(){
+			if($scope.dayStarted == true && $scope.dayEnded == false)
+					$scope.dayEnded = true;
+		};
 		/*$scope.activityList =[{
 				Id : 1,
 				accountName : "Vikas Medical Store",
