@@ -20,14 +20,14 @@
 	<main style="overflow-y: auto;display:block;height:100%;position: relative;">
 		<div class="container" style="margin-bottom: 70px;margin-top:30px">
 			<div class="card">
-	            <div class="card-content">
-	            	<div class="row">
+	            <div class="card-content" style="padding-top:10px;padding-bottom:10px">
+	            	<!--<div class="row">
 	            		<div class="col s12">
 	            			<h4 class="card-title grey-text text-darken-4">{{activity.shopOwner}}</h4>
 	            			<p class="medium-small grey-text">Store Owner</p>
 	            		</div>
-	            	</div>
-	            	<div class="row">
+	            	</div>-->
+	            	<div class="row" style="margin-bottom:0px">
 	            		<div class="col s4">
 	            			<h4 class="card-title grey-text text-darken-4" style="font-size:18px">&#8377 {{activity.lastPurchase}}</h4>
 	            			<p class="medium-small grey-text">Orders for Month</p>
@@ -45,31 +45,31 @@
 	            <div class="card-action">
 	            	<div class="row">
 	            		<div class="col s6">
-			            	<div class="card green darken-4 waves-effect waves-block waves-light"  ng-click="takeOrder()">
+			            	<div class="card green darken-4"  ng-click="takeOrder()">
 								<div class="card-content card-move-up valign-wrapper" style="cursor:pointer;height:150px">
 	 								<div class="valign" style="width:100%" >
 										<div class="center-align">
 											<img src="image/ic_shopping_cart_white_48px.svg" height="48px">
 										</div>
-										<div class="center-align" style="color:#a5d6a7 ">Stock</div>
+										<div class="center-align" style="color:#a5d6a7 ">Stocks</div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col s6">
-							<div class="card green darken-4 waves-effect waves-block waves-light" ng-click="takeShare()">
+							<div class="card green darken-4" ng-click="takeShare()">
 								<div class="card-content card-move-up valign-wrapper" style="cursor:pointer;height:150px">
 									<div class="valign" style="width:100%" >
 										<div class="center-align">
 											<img src="image/ic_view_list_white_48px.svg" height="48px">
 										</div>
-										<div class="center-align" style="color:#a5d6a7">Competitor Info</div>
+										<div class="center-align" style="color:#a5d6a7">Share of Shelf​</div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col s6">
-							<div class="card green darken-4 waves-effect waves-block waves-light" ng-click="takeCase()">
+							<div class="card green darken-4" ng-click="takeCase()">
 								<div class="card-content card-move-up valign-wrapper" style="cursor:pointer;height:150px">
 									<div class="valign" style="width:100%" >
 										<div class="center-align">
@@ -81,13 +81,13 @@
 							</div>
 						</div>
 						<div class="col s6">
-							<div class="card green darken-4 waves-effect waves-block waves-light" ng-click="takeImage()">
+							<div class="card green darken-4" ng-click="takeImage()">
 								<div class="card-content card-move-up valign-wrapper" style="cursor:pointer;height:150px">
 									<div class="valign" style="width:100%" >
 										<div class="center-align">
 											<img src="image/ic_playlist_add_check_white_48px.svg" height="48px">
 										</div>
-										<div class="center-align" style="color:#a5d6a7 ">Store Audit</div>
+										<div class="center-align" style="color:#a5d6a7 ">Asset Visibility</div>
 									</div>
 								</div>
 							</div>

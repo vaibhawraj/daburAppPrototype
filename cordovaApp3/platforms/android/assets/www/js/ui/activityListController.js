@@ -48,13 +48,6 @@ define(['core/SfDataManager'],function(sfDataManager){
 				sfDataManager.getAllTask($scope.onTaskLoad, $scope.onLoadFail);
 			}
 		};
-		$scope.daystart = function(){
-			console.log('asdfasd');
-			$scope.dayStart();
-		};
-		$scope.dayend = function(){
-			$scope.dayEnd();
-		};
 		$scope.init();
 	};
 	return activityListController;

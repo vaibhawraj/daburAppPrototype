@@ -1,0 +1,18 @@
+Id,name,unitPrice,salesPrice,mrp,margin,marketShare,category,offer
+1,Dabur Almond Hair Oil,30,100,25,20%,20,Hair Oils,
+2,Dabur Amla Hair Oil,30,100,40,20%,20,Hair Oils,Buy 1 Get Dabur Vatika Sampoo free
+3,Dabur Vatika Hair Oil,20,100,10,20%,20,Hair Oils,
+5,Dabur Chawanprash,50,60,80,33%,50,Health Supplements,25% Extra on 1 KG
+14,Dabur Honey - 100mL,85,95,100,20%,220,Health Supplements,
+15,Dabur Glucose D - 100gm,85,95,100,20%,250,Health Supplements,10% Discount
+16,Dabur Hajmola,85,95,100,20%,70,Digestives,
+13,Dabur Natural Care Isabgol,85,95,100,20%,210,Digestives,
+13,Dabur Pudin Hara,85,95,100,20%,210,Digestives,
+4,Dabur Lal Dant Manjan,20,70,30,35%,40,Oral Care,
+4,Dabur Babool,20,70,30,35%,40,Oral Care,"Buy 1, Get 1 Free"
+4,Dabur Red Paste,20,70,15,35%,40,Oral Care,
+6,Dabur Odomos,20,70,30,35%,10,Home Care,
+6,Dabur Odonil,60,70,95,35%,10,Home Care,
+4,Dabur Active Orange,60,70,95,35%,30,Foods,
+4,Dabur Real Lichi,60,70,95,35%,30,Foods,
+4,Dabur Active Guava,60,70,95,35%,30,Foods,

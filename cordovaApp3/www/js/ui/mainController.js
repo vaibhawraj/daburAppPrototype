@@ -68,7 +68,7 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 		};
 		$scope.actions = [
 			{
-				actionLabel : "Today's Activities",
+				actionLabel : "Stores",
 				iconName:"image/ic_assignment_white_48px.svg",
 				action : function(){
 					$scope.goNextPage('myActivity');
@@ -87,7 +87,7 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 				action : function(){
 					$scope.goNextPage('dashboard');
 				}
-			},
+			}/*,
 			{
 				actionLabel : "Logout",
 				iconName:"image/ic_exit_to_app_white_48px.svg",
@@ -95,8 +95,11 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 					logger.info("Logging Out");
 					sfDataManager.logout();
 				}
-			}
+			}*/
 		];
+		$scope.logout = function(){
+			sfDataManager.logout();
+		}
 		$scope.taskList = [];
 		$scope.loadTask = true;
 		$scope.setLoadTask = function(v){
@@ -123,6 +126,13 @@ define(['json!productList','core/SfDataManager'],function(productList,sfDataMana
 		$scope.dayEnd = function(){
 			if($scope.dayStarted == true && $scope.dayEnded == false)
 					$scope.dayEnded = true;
+		};
+		$scope.daystart = function(){
+			console.log('asdfasd');
+			$scope.dayStart();
+		};
+		$scope.dayend = function(){
+			$scope.dayEnd();
 		};
 		/*$scope.activityList =[{
 				Id : 1,

@@ -49,7 +49,7 @@ define(['core/SfClient','mediator/mediator'],function(client,m){
 	var getAllTask = function(success,error){
 		if(taskList.length === 0) {
 			logger.info('Fetching Account');
-			var query = 'SELECT Id, Account.Id, Account.Name, Account.Shop_Owner__c, Account.Last_Purchase__c, Account.Balance_Due__c, ActivityDate, Account.billingstreet,Account.billingcity FROM Task WHERE CreatedDate = TODAY AND WHATID != null';			
+			var query = 'SELECT Id, Account.Id, Account.Name, Account.Shop_Owner__c, Account.Last_Purchase__c, Account.Balance_Due__c, ActivityDate, Account.billingstreet,Account.billingcity FROM Task WHERE ActivityDate = TODAY AND WHATID != null AND In_Mobile__c = true';			
 			client.client.query(query,function(response){
 				var records = response.records;
 				logger.debug('Got Response',response);

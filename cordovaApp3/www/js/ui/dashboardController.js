@@ -91,13 +91,14 @@ define(['chartjs'],function(){
 		$scope.createProductChart = function(){
 			var data = {
 			    labels: [
-			        "Dabur Beauty Product",
-			        "Dabur Hair Care Product",
-			        "Dabur Soft Drinks"
+			        "Dabur",
+			        "Patanjali",
+			        "Sri Sri",
+			        "Others"
 			    ],
 			    datasets: [
 			        {
-			            data: [300, 50, 100],
+			            data: [300, 100, 60,20],
 			            backgroundColor: [
 			                "#FF6384",
 			                "#36A2EB",
